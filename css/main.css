@@ -1,3 +1,23 @@
+/*
+
+breakpoints
+
+max-width
+1199px
+991px
+767px
+575px
+
+min-width
+1200px
+992px
+768px
+576px
+
+*/
+
+
+
 /* scaffolding */
 
 @font-face {
@@ -82,8 +102,19 @@ a:active {
 .container {
 	display: flex;
 	justify-content: space-between;
-	width: 1000px;
+	width: 1200px;
 	margin: 0 auto;
+	padding: 0 100px;
+}
+
+@media (max-width: 1199px) {
+
+	.container {
+		width: 100%;
+		margin: 0;
+		padding: 0 20px;
+	}
+
 }
 
 .more-group {
@@ -167,7 +198,7 @@ a:active {
 	position: relative;
 
 	height: 100vh;
-	min-height: 650px;
+	min-height: 610px;
 	padding-top: 45px;
 	padding-bottom: 90px;
 }
@@ -175,10 +206,34 @@ a:active {
 @media (min-width: 1930px) {
 
 	.header .container {
-		height: 650px;
+		height: 610px;
 	}
 
 }
+
+@media (max-width: 1199px) {
+
+	.header .container {
+		height: 610px;
+		min-height: 610px;
+	}
+
+}
+
+@media (max-width: 991px) {
+
+	.header .container {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+}
+
+/**/
+
+
+
+/* .header-top */
 
 .header-top {
 	display: flex;
@@ -187,9 +242,79 @@ a:active {
 	width: 100%;
 }
 
+@media (max-width: 991px) {
+
+	.header-top {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		z-index: 9999; /* > .nav-cont */
+
+		align-items: center;
+		height: 85px;
+		padding: 0 20px;
+
+		background: #000;
+	}
+
+}
+
 .logo {
 	display: block;
+	width: 32px;
+	height: 55px;
 	margin-bottom: 45px;
+}
+
+@media (max-width: 991px) {
+
+	.logo {
+		margin: 0;
+		margin-right: 10px;
+	}
+
+	.nav {
+		display: flex;
+		align-items: center;
+		height: 85px;
+	}
+
+}
+
+.menu-toggler {
+	display: flex;
+	align-items: center;
+	padding: 0;
+
+	background: none;
+	border: none;
+}
+
+.menu-toggler ion-icon {
+	font-size: 24px;
+	color: #fff;
+}
+
+@media (max-width: 991px) {
+
+	.menu-toggler:hover {
+		cursor: pointer;
+	}
+
+	.menu-toggler:active img,
+	.menu-toggler:active ion-icon {
+		opacity: 0.3;
+	}
+
+}
+
+@media (min-width: 992px) {
+
+	.menu-toggler ion-icon {
+		display: none;
+	}
+
 }
 
 .nav-list:after {
@@ -201,6 +326,37 @@ a:active {
 	margin-top: 30px;
 
 	background: #fff;
+}
+
+@media (max-width: 991px) {
+
+	.nav-cont {
+		position: absolute;
+		top: 85px;
+		left: 0;
+		z-index: 9998; /* < .header-top */
+
+		display: none;
+		width: 220px;
+		padding: 20px 20px 45px;
+
+		background: #000;
+	}
+
+	.nav-list:after {
+		display: none;
+	}
+
+}
+
+@media (max-width: 575px) {
+
+	.nav-list:after {
+		display: block;
+
+		margin-bottom: 30px;
+	}
+
 }
 
 .nav-link {
@@ -217,6 +373,10 @@ a:active {
 
 .nav-link:active {
 	color: #ffffff30;
+}
+
+.nav-cont .phone {
+	display: none;
 }
 
 .contacts {
@@ -241,25 +401,76 @@ a:active {
 	color: #ffffff30;
 }
 
+@media (max-width: 767px) {
+
+	.phone {
+		margin-right: 20px;
+
+		font-size: 18px;
+	}
+
+}
+
+@media (max-width: 575px) {
+
+	.phone {
+		display: none;
+	}
+
+	.nav-cont .phone {
+		display: block;
+
+		font-size: 14px;
+		letter-spacing: 0;
+	}
+
+}
+
+/**/
+
+
+
+/* .header-bottom */
+
 .header-bottom {
 	position: absolute;
+	right: 100px;
 	bottom: 90px;
+	left: 100px;
 
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
-	width: 100%;
 }
 
-.intro-title {
+@media (max-width: 1199px) {
+
+	.header-bottom {
+		right: 20px;
+		left: 20px;
+	}
+
+}
+
+.intro h2 {
 	margin-bottom: 40px;
 
 	font-family: 'Bradobrei';
 	font-weight: normal;
 	font-size: 48px;
+	line-height: 1;
+	word-break: break-all;
 }
 
-.intro-descr,
+@media (max-width: 575px) {
+
+	.intro h2 {
+		font-size: 36px;
+	}
+
+}
+
+.intro p,
 .language a {
 	position: relative;
 
@@ -302,6 +513,22 @@ a:active {
 
 .language-ru {
 	margin-right: 15px;
+}
+
+@media (max-width: 991px) {
+
+	.header-bottom {
+		position: static;
+
+		align-items: center;
+	}
+
+	.language {
+		position: absolute;
+		bottom: 45px;
+		left: 20px;
+	}
+
 }
 
 /**/
